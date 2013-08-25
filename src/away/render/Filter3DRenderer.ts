@@ -46,12 +46,12 @@ module away.render
 			return this._mainInputTexture;
 		}
 		
-		public get filters()
+		public get filters():[]
 		{
 			return this._filters;
 		}
 		
-		public set filters(value)
+		public set filters(value:[])
 		{
             this._filters = value;
 

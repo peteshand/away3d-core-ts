@@ -7,9 +7,9 @@ module away.animators
 	 */
 	export class AnimationNodeBase extends away.library.NamedAssetBase implements away.library.IAsset
 	{
-		private _stateClass;
+		private _stateClass:any;
 		
-		public get stateClass()
+		public get stateClass():any
 		{
 			return this._stateClass;
 		}

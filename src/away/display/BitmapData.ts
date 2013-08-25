@@ -486,7 +486,7 @@ module away.display {
          *
          * @returns {HTMLCanvasElement}
          */
-        public get canvas()
+        public get canvas():HTMLCanvasElement
         {
             return this._imageCanvas;
         }

@@ -54,7 +54,7 @@ module away.display
             away.utils.CSS.setCanvasWidth( this._canvas, v );
         }
 
-        public get width ( )
+        public get width ():number
         {
             return this._width;
         }
@@ -65,7 +65,7 @@ module away.display
             away.utils.CSS.setCanvasHeight( this._canvas, v );
         }
 
-        public get height ( )
+        public get height ():number
         {
             return this._height;
         }
@@ -76,7 +76,7 @@ module away.display
             away.utils.CSS.setCanvasX( this._canvas, v );
         }
 
-        public get x ( )
+        public get x ():number
         {
             return this._x;
         }
@@ -87,7 +87,7 @@ module away.display
             away.utils.CSS.setCanvasY( this._canvas, v );
         }
 
-        public get y ( )
+        public get y ():number
         {
             return this._y;
         }
@@ -97,7 +97,7 @@ module away.display
             away.utils.CSS.setCanvasVisibility( this._canvas, v );
         }
 
-        public get visible ( )
+        public get visible ():boolean
         {
             return away.utils.CSS.getCanvasVisibility( this._canvas );
         }
@@ -107,7 +107,7 @@ module away.display
 			return this._canvas;
 		}
 		
-		public get context3D()
+		public get context3D():away.display3D.Context3D
 		{
 			return this._context3D;
 		}

@@ -17,7 +17,7 @@ module away.materials
 	 */
 	export class StaticLightPicker extends LightPickerBase
 	{
-		private _lights : any[] ; // not typed in AS3 - should it be lightbase ?
+		private _lights : away.lights.LightBase[] ; // not typed in AS3 - should it be lightbase ?
 
 		/**
 		 * Creates a new StaticLightPicker object.
@@ -32,12 +32,12 @@ module away.materials
 		/**
 		 * The lights used for shading.
 		 */
-		public get lights()
+		public get lights():away.lights.LightBase[]
 		{
 			return this._lights;
 		}
 
-		public set lights(value : any[] )
+		public set lights(value:away.lights.LightBase[] )
 		{
 			var numPointLights:number = 0;
 			var numDirectionalLights:number = 0;

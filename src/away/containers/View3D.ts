@@ -457,7 +457,7 @@ module away.containers
          *
          * @returns {boolean}
          */
-        public get visible ()
+        public get visible ():boolean
         {
             return true;
         }
