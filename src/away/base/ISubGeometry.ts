@@ -152,7 +152,7 @@ module away.base
 		
 		scaleV:number;//GET
 		
-		scaleUV(scaleU:number , scaleV:number);//scaleUV(scaleU:number = 1, scaleV:number = 1);
+		scaleUV(scaleU:number = 1, scaleV:number = 1); //scaleUV(scaleU:number = 1, scaleV:number = 1);
 		
 		parentGeometry:away.base.Geometry;//GET / SET
 

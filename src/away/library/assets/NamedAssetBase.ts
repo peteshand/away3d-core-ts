@@ -4,7 +4,7 @@
 module away.library
 {
 
-	export class NamedAssetBase extends away.events.EventDispatcher implements away.library.IAsset
+	export class NamedAssetBase extends away.events.EventDispatcher
 	{
 		private _originalName   : string;
 		private _namespace      : string;
@@ -128,6 +128,7 @@ module away.library
             this._full_path = [ this._namespace, this._name ];
 
 		}
+		
 
 	}
 

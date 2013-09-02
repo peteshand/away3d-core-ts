@@ -73,7 +73,7 @@ module away.textures
 			else
             {
 
-                var tx : away.display3D.Texture = <any> texture;
+                var tx : away.display3D.Texture = <away.display3D.Texture> texture;
                     tx.uploadFromBitmapData( this._bitmapData , 0 );
 
             }

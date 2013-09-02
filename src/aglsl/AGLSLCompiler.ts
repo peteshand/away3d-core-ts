@@ -13,7 +13,7 @@ module aglsl
 		
 		public glsl:string;
 		
-		public compile( programType:string, source:string )
+		public compile( programType:string, source:string ):string
 		{
 			var agalMiniAssembler: aglsl.assembler.AGALMiniAssembler = new aglsl.assembler.AGALMiniAssembler();
 			var tokenizer:aglsl.AGALTokenizer = new aglsl.AGALTokenizer();

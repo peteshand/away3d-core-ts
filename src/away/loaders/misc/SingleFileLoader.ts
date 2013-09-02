@@ -201,9 +201,9 @@ module away.loaders
 		 * @param uri The identifier (url or id) of the object to be loaded, mainly used for resource management.
 		 * @param parser An optional parser object that will translate the data into a usable resource. If not provided, AssetLoader will attempt to auto-detect the file type.
 		 */
+		
 		public parseData(data : any, parser : away.loaders.ParserBase = null, req : away.net.URLRequest = null) : void
 		{
-
             if ( data.constructor === Function ) // TODO: Validate
             {
 

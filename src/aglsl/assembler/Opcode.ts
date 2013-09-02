@@ -35,17 +35,4 @@ module aglsl.assembler
 		}
 	}
 	
-	export class FS
-	{
-		public format:string;
-		public size:number;
-	}
-	
-	export class Flags
-	{
-		public simple:boolean;
-		public horizontal:boolean;
-		public fragonly:boolean;
-		public matrix:boolean;
-	}
 }

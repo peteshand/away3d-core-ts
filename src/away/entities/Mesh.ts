@@ -18,7 +18,7 @@ module away.entities
 	 * state. It consists out of SubMeshes, which in turn correspond to SubGeometries. SubMeshes allow different parts
 	 * of the geometry to be assigned different materials.
 	 */
-	export class Mesh extends away.entities.Entity implements away.base.IMaterialOwner, away.library.IAsset
+	export class Mesh extends away.entities.Entity implements away.base.IMaterialOwner
 	{
 		private _subMeshes : away.base.SubMesh[];//:Vector.<SubMesh>;
 		private _geometry:away.base.Geometry;//Geometry;

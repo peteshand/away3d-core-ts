@@ -19,14 +19,9 @@ module away.events
 		
 		constructor( type:string, objectContainer:away.containers.ObjectContainer3D )
 		{
-			this.objectContainer3D = objectContainer;
+			this.target = objectContainer;
 			super( type );
 		}
 		
-		//@override
-		public get target():Object
-		{
-			return this.objectContainer3D;
-		}
 	}
 }

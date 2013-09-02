@@ -24,7 +24,7 @@ module away.display {
          * @param transparent
          * @param fillColor
          */
-        constructor( width : number, height : number , transparent : boolean = true, fillColor : number = null )
+        constructor( width : number, height : number , transparent : boolean = true, fillColor : number = -1 )
         {
 
             this._transparent           = transparent;
@@ -34,7 +34,7 @@ module away.display {
             this._context               = this._imageCanvas.getContext( "2d" );
             this._rect                  = new away.geom.Rectangle( 0 , 0 , width , height );
 
-            if ( fillColor != null )
+            if ( fillColor != -1 )
             {
 
                 if( this._transparent)
@@ -84,7 +84,7 @@ module away.display {
             if ( this._imageData )
             {
 
-                this._context.putImageData( this._imageData, 0, 0); // at coords 0,0
+                this._context.putImageData( this._imageData, 0, 0, 0); // at coords 0,0
                 this._imageData = null;
 
             }
@@ -120,7 +120,7 @@ module away.display {
             {
                 if (  this._imageData )
                 {
-                    this._context.putImageData( this._imageData, 0, 0);
+                    this._context.putImageData( this._imageData, 0, 0, 0);
                 }
 
                 this._imageData = this._context.getImageData(0,0,this._rect.width,this._rect.height);
@@ -168,7 +168,7 @@ module away.display {
 
             if ( ! this._locked )
             {
-                this._context.putImageData( this._imageData, 0, 0);
+                this._context.putImageData( this._imageData, 0, 0, 0);
                 this._imageData = null;
             }
 
@@ -202,7 +202,7 @@ module away.display {
 
             if ( ! this._locked )
             {
-                this._context.putImageData( this._imageData, 0, 0);
+                this._context.putImageData( this._imageData, 0, 0, 0);
                 this._imageData = null;
             }
 
@@ -230,7 +230,7 @@ module away.display {
 
                 if (  this._imageData )
                 {
-                    this._context.putImageData( this._imageData, 0, 0); // at coords 0,0
+                    this._context.putImageData( this._imageData, 0, 0, 0); // at coords 0,0
                 }
 
                 this._drawImage(img , sourceRect , destRect );
@@ -267,7 +267,7 @@ module away.display {
          * @param sourceRect
          * @param destRect
          */
-        public copyPixels( bmpd : BitmapData, sourceRect : away.geom.Rectangle , destRect:away.geom.Rectangle )
+        public copyPixels( bmpd : BitmapData, sourceRect : away.geom.Rectangle , destRect:away.geom.Rectangle );
         public copyPixels( bmpd : HTMLImageElement, sourceRect : away.geom.Rectangle , destRect:away.geom.Rectangle );
         public copyPixels( bmpd : any, sourceRect : away.geom.Rectangle , destRect:away.geom.Rectangle ):void
         {
@@ -283,7 +283,7 @@ module away.display {
 
                 if (  this._imageData )
                 {
-                    this._context.putImageData( this._imageData, 0, 0); // at coords 0,0
+                    this._context.putImageData( this._imageData, 0, 0, 0); // at coords 0,0
                 }
 
                 this._copyPixels(  bmpd , sourceRect , destRect );
@@ -299,7 +299,7 @@ module away.display {
             }
 
         }
-        private _copyPixels( bmpd : BitmapData, sourceRect : away.geom.Rectangle , destRect:away.geom.Rectangle )
+        private _copyPixels( bmpd : BitmapData, sourceRect : away.geom.Rectangle , destRect:away.geom.Rectangle );
         private _copyPixels( bmpd : HTMLImageElement, sourceRect : away.geom.Rectangle , destRect:away.geom.Rectangle );
         private _copyPixels( bmpd : any, sourceRect : away.geom.Rectangle , destRect:away.geom.Rectangle ):void
         {
@@ -334,7 +334,7 @@ module away.display {
 
                 if (  this._imageData )
                 {
-                    this._context.putImageData( this._imageData, 0, 0); // at coords 0,0
+                    this._context.putImageData( this._imageData, 0, 0, 0); // at coords 0,0
                 }
 
                 this._context.fillStyle = this.hexToRGBACSS( color );
@@ -360,8 +360,8 @@ module away.display {
          * @param source
          * @param matrix
          */
-        public draw (source : BitmapData , matrix : away.geom.Matrix )
-        public draw (source : HTMLImageElement , matrix : away.geom.Matrix )
+        public draw (source : BitmapData , matrix : away.geom.Matrix );
+        public draw (source : HTMLImageElement , matrix : away.geom.Matrix );
         public draw (source : any , matrix : away.geom.Matrix ) : void
         {
 
@@ -376,7 +376,7 @@ module away.display {
 
                 if (  this._imageData )
                 {
-                    this._context.putImageData( this._imageData, 0, 0); // at coords 0,0
+                    this._context.putImageData( this._imageData, 0, 0, 0); // at coords 0,0
                 }
 
                 this._draw( source , matrix );
@@ -392,8 +392,8 @@ module away.display {
             }
 
         }
-        private _draw (source : BitmapData , matrix : away.geom.Matrix )
-        private _draw (source : HTMLImageElement , matrix : away.geom.Matrix )
+        private _draw (source : BitmapData , matrix : away.geom.Matrix );
+        private _draw (source : HTMLImageElement , matrix : away.geom.Matrix );
         private _draw (source : any , matrix : away.geom.Matrix ) : void
         {
 
@@ -423,7 +423,7 @@ module away.display {
          */
         public set imageData( value : ImageData )
         {
-            this._context.putImageData( value , 0 , 0 );
+            this._context.putImageData( value , 0 , 0, 0 );
         }
 
         /**

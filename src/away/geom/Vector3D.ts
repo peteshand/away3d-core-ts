@@ -131,7 +131,7 @@ module away.geom {
          * If the current Vector3D object and the one specified as the parameter are unit vertices, this method returns
          * the cosine of the angle between the two vertices.
          */
-        public dotProduct(a: Vector3D) {
+        public dotProduct(a: Vector3D):number {
             return this.x * a.x + this.y * a.y + this.z * a.z;
         }
 

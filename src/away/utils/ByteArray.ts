@@ -53,7 +53,7 @@ module away.utils
 			}
 		}
 		
-		public readByte()
+		public readByte():number
 		{     
 			if ( this.position >= this.length )
 			{
@@ -74,7 +74,7 @@ module away.utils
 			}
 		}
 		
-		public readUnsignedByte()
+		public readUnsignedByte():number
 		{     
 			if ( this.position >= this.length )
 			{
@@ -107,7 +107,7 @@ module away.utils
 			}
 		}
 		
-		public readUnsignedShort()
+		public readUnsignedShort():number
 		{     
 			if ( this.position > this.length + 2 )
 			{
@@ -154,7 +154,7 @@ module away.utils
 			}
 		}
 		
-		public readUnsignedInt()
+		public readUnsignedInt():number
 		{     
 			if ( this.position > this.length + 4 )
 			{
@@ -200,7 +200,7 @@ module away.utils
 			}
 		}
 		
-		public readFloat()
+		public readFloat(b:number):number
 		{     
 			if ( this.position > this.length + 4 )
 			{

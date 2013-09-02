@@ -165,6 +165,11 @@ module away.partition
 			return this._iNumEntities;
 		}
 		
+		public set _pNumEntities(value:number)
+		{
+			this._iNumEntities = value;
+		}
+		
 		public _pUpdateNumEntities( value:number )
 		{
 

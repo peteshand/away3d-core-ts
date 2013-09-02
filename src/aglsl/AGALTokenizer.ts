@@ -13,7 +13,7 @@ module aglsl
 		{
 		}
 		
-		public decribeAGALByteArray( bytes: away.utils.ByteArray )
+		public decribeAGALByteArray( bytes: away.utils.ByteArray ):aglsl.Description
 		{
 			var header:aglsl.Header = new aglsl.Header();
 			

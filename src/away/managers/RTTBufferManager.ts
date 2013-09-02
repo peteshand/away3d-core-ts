@@ -356,27 +356,7 @@ module away.managers
             this._renderToScreenVertexBuffer.uploadFromArray(screenVerts, 0, 4);
 			
 			this._buffersInvalid = false;
-
+			
 		}
 	}
-
-
-}
-
-class RTTBufferManagerVO
-{
-
-    constructor()
-    {
-
-
-    }
-
-    public stage3dProxy : away.managers.Stage3DProxy;
-    public rttbfm       : away.managers.RTTBufferManager;
-
-}
-
-class SingletonEnforcer
-{
 }

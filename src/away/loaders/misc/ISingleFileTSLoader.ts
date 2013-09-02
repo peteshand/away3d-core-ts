@@ -15,9 +15,9 @@ module away.loaders
      * Which kind of loader a Parser is going to require will need to be specified in ParserBase.
      *
      */
-    export interface ISingleFileTSLoader extends away.events.EventDispatcher {
+    export interface ISingleFileTSLoader extends away.events.IEventDispatcher {
 
-        data : any;
+        data : any; // GET
         dataFormat : string;
         load( rep : away.net.URLRequest ) : void ;
         dispose() : void ;

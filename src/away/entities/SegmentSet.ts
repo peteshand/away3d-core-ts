@@ -497,7 +497,12 @@ module away.entities
 		{
 			return this._animator;
 		}
-
+		
+		public set animator(value:IAnimator):void
+		{
+			this._animator = value;
+		}
+		
 		public set material( value:away.materials.MaterialBase )
 		{
 			if( value == this._material)
@@ -579,45 +584,6 @@ module away.entities
 		public getRenderSceneTransform( camera:away.cameras.Camera3D ):away.geom.Matrix3D
 		{
 			return this._pSceneTransform;
-		}
-	}
-	
-	class SegRef
-	{
-		public index:number;
-		public subSetIndex:number;
-		public segment:away.primitives.Segment;
-	}
-	
-	class SubSet
-	{
-		public vertices:number[];
-		public numVertices:number;
-		
-		public indices:number[];
-		public numIndices:number;
-		
-		public vertexBufferDirty:boolean;
-		public indexBufferDirty:boolean;
-		
-		public vertexContext3D:away.display3D.Context3D;
-		public indexContext3D:away.display3D.Context3D;
-		
-		public vertexBuffer:away.display3D.VertexBuffer3D;
-		public indexBuffer:away.display3D.IndexBuffer3D;
-		public lineCount:number;
-		
-		public dispose()
-		{
-			this.vertices = null;
-			if( this.vertexBuffer )
-			{
-				this.vertexBuffer.dispose();
-			}
-			if( this.indexBuffer )
-			{
-				this.indexBuffer.dispose();
-			}
 		}
 	}
 }

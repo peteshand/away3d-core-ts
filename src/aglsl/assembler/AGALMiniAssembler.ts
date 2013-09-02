@@ -19,7 +19,7 @@ module aglsl.assembler
 			this.cur = new aglsl.assembler.Part();
 		}
 		
-		public assemble( source:string, ext_part = null, ext_version = null )
+		public assemble( source:string, ext_part:string = null, ext_version:number = 1 ):Object
 		{
 			if( !ext_version )
 			{
@@ -41,9 +41,9 @@ module aglsl.assembler
 			return this.r;
 		}
 		
-		private processLine( line, linenr )
+		private processLine( line:string, linenr:number ):void
 		{            
-			var startcomment = line.search( "//" );  // remove comments
+			var startcomment:number = line.search( "//" );  // remove comments
 			if ( startcomment != -1 )
 			{
 				line = line.slice( 0, startcomment );
@@ -53,8 +53,8 @@ module aglsl.assembler
 			{
 				return;
 			}
-			var optsi = line.search( /<.*>/g ); // split of options part <*> if there
-			var opts = null;
+			var optsi:number = line.search( /<.*>/g ); // split of options part <*> if there
+			var opts:Array = null;
 			if ( optsi != -1 )
 			{
 				opts = line.slice( optsi ).match( /([\w\.\-\+]+)/gi );
@@ -62,7 +62,7 @@ module aglsl.assembler
 			}
 			
 			// get opcode/command				            
-			var tokens = line.match( /([\w\.\+\[\]]+)/gi ); // get tokens in line
+			var tokens:Array = line.match( /([\w\.\+\[\]]+)/gi ); // get tokens in line
 			if ( !tokens || tokens.length<1 ) {
 				if ( line.length >= 3 )
 				{
@@ -158,7 +158,8 @@ module aglsl.assembler
 			pr.data.writeUnsignedInt( 0 );
 		}
 		
-		public emitDest( pr, token, opdest ) {
+		public emitDest( pr, token, opdest ):boolean
+		{
 			
             //console.log( 'aglsl.assembler.AGALMiniAssembler' , 'emitDest' , 'RegMap.map' , RegMap.map);           
 			var reg = token.match ( /([fov]?[tpocidavs])(\d*)(\.[xyzw]{1,4})?/i ); // g1: regname, g2:regnum, g3:mask
@@ -186,7 +187,8 @@ module aglsl.assembler
 			return r;
 		} 
 		
-		public stringToSwizzle( s ) {
+		public stringToSwizzle( s ):number
+		{
 			if ( !s ) return 0xe4; 
 			var chartoindex = { x:0, y:1, z:2, w:3 };
 			var sw = 0;
@@ -201,7 +203,8 @@ module aglsl.assembler
 			return sw; 
 		}
 		
-		public emitSampler( pr: aglsl.assembler.Part, token, opsrc, opts ) {                            
+		public emitSampler( pr: aglsl.assembler.Part, token, opsrc, opts ):boolean
+		{                            
 			var reg = token.match ( /fs(\d*)/i ); // g1:regnum
 			if ( !reg || !reg[1] ) return false; 
 			pr.data.writeUnsignedShort ( reg[1] ); 
@@ -235,7 +238,8 @@ module aglsl.assembler
 			return true;
 		}
 		
-		public emitSource( pr, token, opsrc ) {
+		public emitSource( pr, token, opsrc ):boolean
+		{
 			var indexed = token.match ( /vc\[(v[tcai])(\d+)\.([xyzw])([\+\-]\d+)?\](\.[xyzw]{1,4})?/i ); // g1: indexregname, g2:indexregnum, g3:select, [g4:offset], [g5:swizzle] 
 			var reg;
 			if ( indexed ) {
@@ -265,7 +269,7 @@ module aglsl.assembler
 			return true; 
 		}  
 		
-		public addHeader( partname, version ) {
+		public addHeader( partname:string, version:number ) {
 			if( !version )
 			{
 				version = 1;

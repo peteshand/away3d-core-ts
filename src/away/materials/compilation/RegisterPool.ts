@@ -275,7 +275,7 @@ module away.materials
 		}
 
 
-        private _initArray( a : Array<any> , val : any ) : Array<any>
+        private _initArray( a : Array<number> , val : any ) : Array<number>
         {
 
             var l : number = a.length;

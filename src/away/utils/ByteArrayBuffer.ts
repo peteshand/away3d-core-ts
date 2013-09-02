@@ -21,7 +21,7 @@ module away.utils
 		constructor()
 		{
 			super();
-			this._bytes = [];
+			this._bytes = number[];
 			this._mode = "Array";
 		}
 		
@@ -116,7 +116,7 @@ module away.utils
 			this.writeUnsignedInt( this.toFloatBits(Number(b)));
 		}
 		
-		public toFloatBits( x:number )
+		public toFloatBits( x:number ):number
 		{
 			// don't handle inf/nan yet
 			// special case zero
@@ -144,12 +144,12 @@ module away.utils
 			return( ( sign << 31 ) >>> 0) | ( exponent << 23 ) | mantissa;
 		}
 		
-		public readFloat( b:number )
+		public readFloat( b:number ):number
 		{
 			return this.fromFloatBits ( this.readUnsignedInt() );
 		}
 		
-		public fromFloatBits( x:number )
+		public fromFloatBits( x:number ):number
 		{
 			if ( x == 0 )
 			{

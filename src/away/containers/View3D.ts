@@ -169,7 +169,7 @@ module away.containers
          *
          * @returns {*}
          */
-		public get filters3d():Array
+		public get filters3d():away.filters.Filter3DBase[]
 		{
 			return this._pFilter3DRenderer ? this._pFilter3DRenderer.filters : null;
 		}
@@ -177,7 +177,7 @@ module away.containers
          *
          * @param value
          */
-        public set filters3d( value )
+        public set filters3d( value:away.filters.Filter3DBase[] )
         {
             if (value && value.length == 0)
                 value = null;

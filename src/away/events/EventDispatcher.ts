@@ -165,15 +165,6 @@ module away.events {
 
 
     }
-    /**
-     * Event listener data container
-     */
-    class EventData{
-
-        public listener     : Function;
-        public target       : Object;
-        public type         : string;
-
-    }
+   
 
 }

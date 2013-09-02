@@ -33,7 +33,7 @@ module away.display3D
 			if ( !this._gl.getShaderParameter( this._vertexShader, this._gl.COMPILE_STATUS ) )
 			{
 				alert( this._gl.getShaderInfoLog( this._vertexShader ) );
-				return null; //TODO throw errors
+				return; //TODO throw errors
 			}
 			
 			this._gl.shaderSource( this._fragmentShader, fragmentProgram );
@@ -42,7 +42,7 @@ module away.display3D
 			if ( !this._gl.getShaderParameter( this._fragmentShader, this._gl.COMPILE_STATUS ) )
 			{
 				alert( this._gl.getShaderInfoLog( this._fragmentShader ) );
-				return null; //TODO throw errors
+				return; //TODO throw errors
 			}
 			
 			this._gl.attachShader( this._program, this._vertexShader );

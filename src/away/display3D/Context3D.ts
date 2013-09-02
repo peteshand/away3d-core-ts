@@ -88,7 +88,7 @@ module away.display3D
 
 		}
 		
-		public createCubeTexture( size:number, format:away.display3D.Context3DTextureFormat, optimizeForRenderToTexture:boolean, streamingLevels:number = 0 ):away.display3D.CubeTexture 
+		public createCubeTexture( size:number, format:string, optimizeForRenderToTexture:boolean, streamingLevels:number = 0 ):away.display3D.CubeTexture 
 		{
             var texture: away.display3D.CubeTexture = new away.display3D.CubeTexture( this._gl, size );
             this._textureList.push( texture );
@@ -523,7 +523,7 @@ module away.display3D
 			
             //if ( buffer == null )return;
 			
-			var location:number = this._gl.getAttribLocation( this._currentProgram.glProgram, locationName );
+			var location:number = <number> this._gl.getAttribLocation(this._currentProgram.glProgram, locationName);
 			if( !buffer )
 			{
 				

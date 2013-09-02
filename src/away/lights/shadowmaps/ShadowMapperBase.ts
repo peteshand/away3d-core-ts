@@ -24,7 +24,7 @@ module away.lights
 			this._pCasterCollector = this.pCreateCasterCollector();
 		}
 		
-		public pCreateCasterCollector()
+		public pCreateCasterCollector():away.traverse.ShadowCasterCollector
 		{
 			return new away.traverse.ShadowCasterCollector();
 		}

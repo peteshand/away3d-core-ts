@@ -89,7 +89,7 @@ module away.display
 
 		private createHTMLCanvasElement(): HTMLCanvasElement
 		{
-			return document.createElement( "canvas" );
+			return <HTMLCanvasElement> document.createElement( "canvas" );
 		}
 		
 		private addChildHTMLElement( canvas: HTMLCanvasElement )

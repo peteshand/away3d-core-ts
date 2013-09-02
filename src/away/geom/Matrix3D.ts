@@ -228,10 +228,10 @@ module away.geom
 			//this.rawData = sourceMatrix3D.rawData.slice( 0 );
 		}
 		
-		public copyRawDataFrom( vector:number[], index:number = 0, transpose:boolean = false ):void
+		public copyRawDataFrom( vector:number[], index:number = 0, transposeThis:boolean = false ):void
 		{
 			// Initial Tests - OK
-			if ( transpose )
+			if ( transposeThis )
             {
                 this.transpose();
             }
@@ -242,19 +242,19 @@ module away.geom
                 this.rawData[c] = vector[c+index];
             }
 			
-			if ( transpose )
+			if ( transposeThis )
             {
                 this.transpose();
             }
 		}
 		
-		public copyRawDataTo( vector:number[], index:number = 0, transpose:boolean = false )
+		public copyRawDataTo( vector:number[], index:number = 0, transposeThis:boolean = false )
 		{
 
             // Initial Tests - OK
 
 
-            if ( transpose )
+            if ( transposeThis )
             {
                 this.transpose();
             }
@@ -267,7 +267,7 @@ module away.geom
 
             }
 
-            if ( transpose )
+            if ( transposeThis )
             {
                 this.transpose();
             }
@@ -450,7 +450,7 @@ module away.geom
 		/**
 		 * [static] Interpolates the translation, rotation, and scale transformation of one matrix toward those of the target matrix.
 		 */
-		static interpolate( thisMat:Matrix3D, toMat:Matrix3D, percent:number ):Matrix3D
+		public static interpolate( thisMat:Matrix3D, toMat:Matrix3D, percent:number ):Matrix3D
 		{
 			var m:Matrix3D = new Matrix3D();
 			for( var i: number = 0; i < 16; ++i )

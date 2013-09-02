@@ -31,9 +31,9 @@ module away.managers
 		 * @param stage The Stage object that contains the Stage3D objects to be managed.
 		 * @private
 		 */
-		constructor(stage:away.display.Stage, Stage3DManagerSingletonEnforcer:Stage3DManagerSingletonEnforcer)
+		constructor(stage:away.display.Stage, stage3DManagerSingletonEnforcer:Stage3DManagerSingletonEnforcer)
 		{
-			if (!Stage3DManagerSingletonEnforcer)
+			if (!stage3DManagerSingletonEnforcer)
             {
                 throw new Error("This class is a multiton and cannot be instantiated manually. Use Stage3DManager.getInstance instead.");
             }
@@ -215,16 +215,4 @@ module away.managers
 			return Stage3DManager._stageProxies.length;
 		}
 	}
-}
-
-class Stage3DManagerInstanceData
-{
-
-    public stage            : away.display.Stage;
-    public stage3DManager   : away.managers.Stage3DManager;
-
-}
-
-class Stage3DManagerSingletonEnforcer
-{
 }

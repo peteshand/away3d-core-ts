@@ -15,7 +15,7 @@ module away.utils
         private _prevTime               : number;
         private _dt                     : number;
         private _currentTime            : number;
-        private _argsArray              : any[] = new Array();
+        private _argsArray              : any[] = [];
         private _getTimer               : Function;
 
         constructor ( callback : Function , callbackContext : Object )

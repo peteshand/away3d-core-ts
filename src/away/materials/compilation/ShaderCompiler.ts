@@ -969,7 +969,7 @@ module away.materials
             var methods:away.materials.MethodVOSet[] = this._pMethodSetup._iMethods;//var methods:Vector.<MethodVOSet> = this._pMethodSetup._iMethods;
 
 			var numMethods:number = methods.length;
-			var method:EffectMethodBase;
+			var method:away.materials.EffectMethodBase;
 			var data:MethodVO;
 			var alphaReg:ShaderRegisterElement;
 

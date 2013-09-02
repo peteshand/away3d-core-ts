@@ -535,7 +535,7 @@ module away.base
 		 * Disposes all buffers in a given vector.
 		 * @param buffers The vector of buffers to dispose.
 		 */
-		public pDisposeVertexBuffers(buffers: away.display3D.VertexBuffer3D [] ) : void //Vector.<VertexBuffer3D>)
+		public pDisposeVertexBuffers(buffers: away.display3D.VertexBuffer3D[] ) : void //Vector.<VertexBuffer3D>)
 		{
 			for (var i:number = 0; i < 8; ++i)
             {

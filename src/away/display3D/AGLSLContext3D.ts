@@ -7,7 +7,7 @@
 
 module away.display3D
 {
-	export class AGLSLContext3D extends Context3D
+	export class AGLSLContext3D extends away.display3D.Context3D
 	{
 		
 		constructor( canvas: HTMLCanvasElement )

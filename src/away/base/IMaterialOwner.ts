@@ -18,6 +18,6 @@ module away.base
 		/**
 		 * The animation used by the material to assemble the vertex code.
 		 */
-		animator:away.animators.IAnimator; // in most cases, this will in fact be null
+		animator:away.animators.IAnimator; // GET in most cases, this will in fact be null
 	}
 }

@@ -19,14 +19,14 @@ module away.lights
 			super();
 			
 			this._pDepthMapSize = 512;
-			this._needsRender = [];
+			this._needsRender = new boolean[];
 			this.initCameras();
 		}
 		
 		private initCameras()
 		{
-			this._depthCameras = [];
-			this._lenses = [];
+			this._depthCameras = new away.cameras.Camera3D[];
+			this._lenses = new away.cameras.PerspectiveLens[];
 			// posX, negX, posY, negY, posZ, negZ
 			this.addCamera(0, 90, 0);
 			this.addCamera(0, -90, 0);

@@ -37,7 +37,7 @@ module away.materials
         public _pMaterial:away.materials.MaterialBase;
 		private _animationSet:away.animators.IAnimationSet;
 
-        public _iProgram3Ds:away.display3D.Program3D[] = new Array<away.display3D.Program3D>( 8 ) //Vector.<Program3D> = new Vector.<Program3D>(8);
+        public _iProgram3Ds:away.display3D.Program3D[] = new Array<away.display3D.Program3D>( 8 );
         public _iProgram3Dids:number[] = new Array<number>(-1, -1, -1, -1, -1, -1, -1, -1);//Vector.<int> = Vector.<int>([-1, -1, -1, -1, -1, -1, -1, -1]);
 		private _context3Ds:away.display3D.Context3D[] = new Array<away.display3D.Context3D>( 8 );//Vector.<Context3D> = new Vector.<Context3D>(8);
 		
@@ -64,10 +64,10 @@ module away.materials
 		public  _pLightPicker:away.materials.LightPickerBase;
 
         // TODO: AGAL conversion
-        public _pAnimatableAttributes:string[] = new Array<string>( "va0");
+        public _pAnimatableAttributes:string[] = new Array<string>();
 
         // TODO: AGAL conversion
-        public _pAnimationTargetRegisters:string[] = new Array<string>( "vt0" );
+        public _pAnimationTargetRegisters:string[] = new Array<string>();
 
         // TODO: AGAL conversion
         public _pShadedTarget:string = "ft0";
@@ -104,7 +104,10 @@ module away.materials
 		{
 
             super();
-
+			
+			_pAnimatableAttributes.push( "va0");
+			_pAnimationTargetRegisters.push( "vt0" );
+		
 			this._renderToTexture = renderToTexture;
             this._pNumUsedStreams = 1;
             this._pNumUsedVertexConstants = 5;
