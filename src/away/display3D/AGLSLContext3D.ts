@@ -10,6 +10,8 @@ module away.display3D
 	export class AGLSLContext3D extends away.display3D.Context3D
 	{
 		
+		private _yFlip:number = -1;
+		
 		constructor( canvas: HTMLCanvasElement )
 		{
 			super( canvas );
@@ -52,10 +54,24 @@ module away.display3D
 			console.log( "firstIndex: " +  firstIndex );
 			console.log( "numTriangles:" + numTriangles );
 			*/
-			//TODO switch and track flip direction when altering culling mode WIP
 			var location:WebGLUniformLocation = this._gl.getUniformLocation( this._currentProgram.glProgram, "yflip" );
-			this._gl.uniform1f( location, -1.0 );
+			this._gl.uniform1f( location, this._yFlip );
 			super.drawTriangles( indexBuffer, firstIndex, numTriangles );
+		}
+		
+		//@override
+		public setCulling( triangleFaceToCull:string )
+		{
+			switch( triangleFaceToCull )
+			{
+				case Context3DTriangleFace.FRONT:
+						this._yFlip = 1;
+					break
+				case Context3DTriangleFace.BACK:
+						this._yFlip = -1;
+					break;
+			}
+			super.setCulling( triangleFaceToCull );
 		}
 	}
 }

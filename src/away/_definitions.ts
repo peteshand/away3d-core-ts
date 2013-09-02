@@ -146,6 +146,11 @@
 ///<reference path="loaders/misc/SingleFileImageLoader.ts" />
 ///<reference path="loaders/misc/SingleFileURLLoader.ts" />
 ///<reference path="loaders/parsers/ParserLoaderType.ts" />
+
+///<reference path="loaders/parsers/utils/ParserUtil.ts"/>
+///<reference path="loaders/parsers/OBJParser.ts"/>
+
+
 ///<reference path="textures/TextureProxyBase.ts" />
 ///<reference path="textures/Texture2DBase.ts" />
 ///<reference path="textures/HTMLImageElementTexture.ts" />
@@ -283,11 +288,9 @@
 ///<reference path="managers/RTTBufferManager.ts"/>
 ///<reference path="filters/Filter3DBase.ts"/>
 ///<reference path="render/Filter3DRenderer.ts"/>
-
 ///<reference path="utils/ByteArrayBase.ts"/>
 ///<reference path="utils/ByteArray.ts"/>
 ///<reference path="utils/ByteArrayBuffer.ts"/>
-
 ///<reference path="../aglsl/Sampler.ts"/>
 ///<reference path="../aglsl/Token.ts"/>
 ///<reference path="../aglsl/Header.ts"/>
