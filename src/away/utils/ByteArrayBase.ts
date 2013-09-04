@@ -28,16 +28,21 @@ module away.utils
 		public writeUnsignedInt( b:number ){ throw "Virtual method"; }
 		public readUnsignedInt():number{ throw "Virtual method"; }
 		public writeFloat( b:number ){ throw "Virtual method"; }
-		public toFloatBits( x:number ):number{ throw "Virtual method"; }
-		public readFloat( b:number ):number{ throw "Virtual method"; }
-		public fromFloatBits( x:number ):number{ throw "Virtual method"; }
-		
+		public toFloatBits( x:number ){ throw "Virtual method"; }
+		public readFloat( b:number ){ throw "Virtual method"; }
+		public fromFloatBits( x:number ){ throw "Virtual method"; }
+
+        public getBytesAvailable() : number
+        {
+            throw new away.errors.AbstractMethodError( 'ByteArrayBase, getBytesAvailable() not implemented ');
+        }
+
 		public toString():string
 		{
 			return "[ByteArray] ( " + this._mode + " ) position=" + this.position + " length=" + this.length; 
 		}
 		
-		public compareEqual( other, count ):boolean
+		public compareEqual( other, count )
 		{
 			if ( count == undefined || count > this.length - this.position ) 
 				count = this.length - this.position;
@@ -94,8 +99,7 @@ module away.utils
 			this.position = oldpos;
 		}
 		
-		public internalGetBase64String( count, getUnsignedByteFunc, self ):string
-		{ // return base64 string of the next count bytes
+		public internalGetBase64String( count, getUnsignedByteFunc, self ) { // return base64 string of the next count bytes
 			var r = "";
 			var b0, b1, b2, enc1, enc2, enc3, enc4;
 			var base64Key = this.Base64Key;
