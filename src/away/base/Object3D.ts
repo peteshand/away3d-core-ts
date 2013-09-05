@@ -840,7 +840,7 @@ module away.base
 		{
 			var clone:away.base.Object3D = new away.base.Object3D();
 		    	clone.pivotPoint = this.pivotPoint;
-			    clone.transform = this.transform;
+			    clone.transform = this._pTransform;
 			    clone.name = name;
 			// todo: implement for all subtypes
 			return clone;
@@ -869,7 +869,7 @@ module away.base
 		public rotate(axis:away.geom.Vector3D, angle:number)
 		{
 			this.transform.prependRotation(angle, axis);
-			this.transform = this.transform;
+			this.transform = this._pTransform;
 
 		}
 		/**
@@ -926,7 +926,7 @@ module away.base
 
             this._pTransform.copyRawDataFrom(raw);
 
-            this.transform = this.transform;
+            this.transform = this._pTransform;
 			
 			if (zAxis.z < 0)
             {

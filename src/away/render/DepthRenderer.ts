@@ -20,8 +20,8 @@ module away.render
 		 */
 		constructor(renderBlended:boolean = false, distanceBased:boolean = false)
 		{
-			super();
-
+			super(false);
+			
 			this._renderBlended = renderBlended;
             this._distanceBased = distanceBased;
             this.iBackgroundR = 1;

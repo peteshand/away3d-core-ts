@@ -25,8 +25,8 @@ module away.render
 		 */
 		constructor()
 		{
-			super();
-
+			super(false);
+			
 			this._pDepthRenderer = new away.render.DepthRenderer();
             this._pDistanceRenderer = new away.render.DepthRenderer(false, true);
 
