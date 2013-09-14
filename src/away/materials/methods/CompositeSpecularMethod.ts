@@ -30,15 +30,13 @@ module away.materials
 
 		}
 
-        public initCompositeSpecularMethod( modulateMethod:Function, baseSpecularMethod:away.materials.BasicSpecularMethod = null)
+        public initCompositeSpecularMethod( scope : Object , modulateMethod:Function, baseSpecularMethod:away.materials.BasicSpecularMethod = null)
         {
 
             this._baseMethod = baseSpecularMethod || new away.materials.BasicSpecularMethod();
-
-
             this._baseMethod._iModulateMethod = modulateMethod;
+            this._baseMethod._iModulateMethodScope = scope;
             this._baseMethod.addEventListener(away.events.ShadingMethodEvent.SHADER_INVALIDATED, this.onShaderInvalidated , this );
-
 
         }
 
@@ -151,11 +149,16 @@ module away.materials
 		/**
 		 * @inheritDoc
 		 */
-		public set sharedRegisters(value:away.materials.ShaderRegisterData)
-		{
-            this.setISharedRegisters( value );
-			this._baseMethod.setISharedRegisters(value );
-		}
+        public set iSharedRegisters(value:away.materials.ShaderRegisterData)
+        {
+            super.setISharedRegisters( value );
+            this._baseMethod.setISharedRegisters(value );
+        }
+        public setISharedRegisters(value:away.materials.ShaderRegisterData)
+        {
+            super.setISharedRegisters( value );
+            this._baseMethod.setISharedRegisters(value );
+        }
 		
 		/**
 		 * @inheritDoc
@@ -201,9 +204,9 @@ module away.materials
 		/**
 		 * @inheritDoc
 		 */
-		public reset():void
+		public iReset():void
 		{
-			//this._baseMethod.reset();    // TODO: changed from redacted API ?
+            this._baseMethod.iReset();
 		}
 
 		/**

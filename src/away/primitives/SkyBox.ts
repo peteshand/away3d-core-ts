@@ -1,9 +1,6 @@
-
 ///<reference path="../_definitions.ts"/>
-
-module away.entities
+module away.primitives
 {
-	
 
 	/**
 	 * A SkyBox class is used to render a sky in the scene. It's always considered static and 'at infinity', and as
@@ -35,17 +32,16 @@ module away.entities
 		constructor(cubeMap:away.textures.CubeTextureBase)
 		{
 			super();
-
 			this._material = new away.materials.SkyBoxMaterial(cubeMap);
 			this._material.iAddOwner(this);
 			this._geometry = new away.base.SubGeometry();
-			this.buildGeometry( this._geometry);
+			this.buildGeometry(this._geometry);
 		}
 		
 		/**
 		 * @inheritDoc
 		 */
-		public activateVertexBuffer(index:number, stage3DProxy:away.managers.Stage3DProxy)
+		public activateVertexBuffer(index:number , stage3DProxy:away.managers.Stage3DProxy):void
 		{
 			this._geometry.activateVertexBuffer(index, stage3DProxy);
 		}
@@ -53,25 +49,25 @@ module away.entities
 		/**
 		 * @inheritDoc
 		 */
-		public activateUVBuffer(index:number,stage3DProxy:away.managers.Stage3DProxy)
+		public activateUVBuffer(index:number, stage3DProxy:away.managers.Stage3DProxy):void
 		{
 		}
 		
 		/**
 		 * @inheritDoc
 		 */
-		public activateVertexNormalBuffer(index:number,stage3DProxy:away.managers.Stage3DProxy)
+		public activateVertexNormalBuffer(index:number, stage3DProxy:away.managers.Stage3DProxy):void
 		{
 		}
 		
 		/**
 		 * @inheritDoc
 		 */
-		public activateVertexTangentBuffer(index:number, stage3DProxy:away.managers.Stage3DProxy)
+		public activateVertexTangentBuffer(index:number, stage3DProxy:away.managers.Stage3DProxy):void
 		{
 		}
 		
-		public activateSecondaryUVBuffer(index:number, stage3DProxy:away.managers.Stage3DProxy)
+		public activateSecondaryUVBuffer(index:number, stage3DProxy:away.managers.Stage3DProxy):void
 		{
 		}
 		
@@ -94,7 +90,7 @@ module away.entities
 		/**
 		 * The entity that that initially provided the IRenderable to the render pipeline.
 		 */
-		public get sourceEntity():Entity
+		public get sourceEntity():away.entities.Entity
 		{
 			return null;
 		}
@@ -112,7 +108,7 @@ module away.entities
 			throw new away.errors.AbstractMethodError("Unsupported method!");
 		}
 		
-		public get assetType():string
+		public get assetType():String
 		{
 			return away.library.AssetType.SKYBOX;
 		}
@@ -120,7 +116,7 @@ module away.entities
 		/**
 		 * @inheritDoc
 		 */
-		public pInvalidateBounds()
+		public pInvalidateBounds():void
 		{
 			// dead end
 		}
@@ -130,7 +126,8 @@ module away.entities
 		 */
 		public pCreateEntityPartitionNode():away.partition.EntityNode
 		{
-			return new away.partition.SkyBoxNode(this);
+            var node : away.partition.SkyBoxNode = new away.partition.SkyBoxNode(this)
+			return <away.partition.EntityNode> node ;
 		}
 		
 		/**
@@ -138,32 +135,30 @@ module away.entities
 		 */
 		public pUpdateBounds()
 		{
-			this._pBoundsInvalid = false;
+            this._pBoundsInvalid = false;
 		}
 		
 		/**
 		 * Builds the geometry that forms the SkyBox
 		 */
-		private buildGeometry(target:away.base.SubGeometry)
+		private buildGeometry(target:away.base.SubGeometry):void
 		{
-			var vertices:number[] = new Array<number>(
+			var vertices:Array<number> = [
 				-1, 1, -1, 1, 1, -1,
 				1, 1, 1, -1, 1, 1,
 				-1, -1, -1, 1, -1, -1,
 				1, -1, 1, -1, -1, 1
-                );
+				];
 
-			//vertices.fixed = true;
-			
-			var indices:number[] /*uint*/ = new Array<number>(
+			var indices:Array<number> = [
 				0, 1, 2, 2, 3, 0,
 				6, 5, 4, 4, 7, 6,
 				2, 6, 7, 7, 3, 2,
 				4, 5, 1, 1, 0, 4,
 				4, 0, 3, 3, 7, 4,
 				2, 1, 5, 5, 6, 2
-                );
-
+				];
+			
 			target.updateVertexData(vertices);
 			target.updateIndexData(indices);
 		}
@@ -183,7 +178,7 @@ module away.entities
 			return this._geometry.vertexData;
 		}
 		
-		public get indexData():number[] /*uint*/
+		public get indexData():number[]
 		{
 			return this._geometry.indexData;
 		}
@@ -230,7 +225,8 @@ module away.entities
 		
 		public getRenderSceneTransform(camera:away.cameras.Camera3D):away.geom.Matrix3D
 		{
-			return this._pSceneTransform;
+
+			return this._pSceneTransform
 		}
 	}
 }
