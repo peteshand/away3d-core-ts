@@ -29,7 +29,7 @@ module away.utils
 		public readUnsignedInt():number{ throw "Virtual method"; }
 		public writeFloat( b:number ){ throw "Virtual method"; }
 		public toFloatBits( x:number ):number{ throw "Virtual method"; }
-		public readFloat( b:number ):number{ throw "Virtual method"; }
+		public readFloat():number{ throw "Virtual method"; }
 		public fromFloatBits( x:number ):number{ throw "Virtual method"; }
 
         public getBytesAvailable() : number

@@ -144,7 +144,7 @@ module away.utils
 			return( ( sign << 31 ) >>> 0) | ( exponent << 23 ) | mantissa;
 		}
 		
-		public readFloat( b:number ):number
+		public readFloat():number
 		{
 			return this.fromFloatBits ( this.readUnsignedInt() );
 		}
