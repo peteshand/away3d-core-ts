@@ -9,9 +9,6 @@ module away.display3D
 {
 	export class Texture extends TextureBase
 	{
-		
-		public textureType:string = "texture2d";
-		
 		private _width:number;
 		private _height:number;
 		
@@ -20,6 +17,8 @@ module away.display3D
 		constructor( gl:WebGLRenderingContext, width:number, height:number )
 		{
 			super( gl );
+			
+			textureType = "texture2d";
 			this._width = width;
 			this._height = height;
 			

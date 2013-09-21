@@ -9,8 +9,6 @@ module away.display3D
 {
 	export class CubeTexture extends away.display3D.TextureBase
 	{
-		
-		public textureType:string = "textureCube";
 		private _textures:WebGLTexture[];
 		private _size:number;
 		
@@ -18,6 +16,8 @@ module away.display3D
 		{
 			super( gl );
 			this._size = size;
+			
+			textureType = "textureCube";
 			
 			this._textures = [];
 			for( var i:number = 0; i < 6; ++i )

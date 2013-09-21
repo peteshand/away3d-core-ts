@@ -105,9 +105,7 @@ module away.cameras
                 raw[5] = this._pNear/this._yMax;
 				raw[10] = this._pFar/(this._pFar - this._pNear);
 				raw[11] = 1;
-				raw[1] = raw[2] = raw[3] = raw[4] =
-					raw[6] = raw[7] = raw[8] = raw[9] =
-					raw[12] = raw[13] = raw[15] = 0;
+				raw[1] = raw[2] = raw[3] = raw[4] = raw[6] = raw[7] = raw[8] = raw[9] = raw[12] = raw[13] = raw[15] = 0;
 				raw[14] = -this._pNear*raw[10];
 			} else {
 				// assume scissored frustum
@@ -127,8 +125,7 @@ module away.cameras
 				raw[9] = (bottom + top)/(bottom - top);
 				raw[10] = (this._pFar + this._pNear)/(this._pFar - this._pNear);
 				raw[11] = 1;
-				raw[1] = raw[2] = raw[3] = raw[4] =
-					raw[6] = raw[7] = raw[12] = raw[13] = raw[15] = 0;
+				raw[1] = raw[2] = raw[3] = raw[4] = raw[6] = raw[7] = raw[12] = raw[13] = raw[15] = 0;
 				raw[14] = -2*this._pFar*this._pNear/(this._pFar - this._pNear);
 			}
 			

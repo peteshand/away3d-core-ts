@@ -230,8 +230,8 @@ module away.materials
 			this.pInitRegisterIndices();
 			this.pInitLightData();
 
-			this._pAnimatableAttributes = new Array<string>( "va0" );//Vector.<String>(["va0"]);
-            this._pAnimationTargetRegisters = new Array<string>( "vt0" );//Vector.<String>(["vt0"]);
+			this._pAnimatableAttributes = new Array<string>( 'va0' );//Vector.<String>(["va0"]);
+            this._pAnimationTargetRegisters = new Array<string>( 'vt0' );//Vector.<String>(["vt0"]);
             this._pVertexCode = "";
             this._pFragmentCode = "";
 

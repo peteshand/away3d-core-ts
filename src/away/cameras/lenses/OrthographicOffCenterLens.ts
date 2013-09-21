@@ -104,8 +104,7 @@ module away.cameras
 			raw[13] = -(this._maxY + this._minY)*h;
 			raw[14] = -this._pNear*d;
 			raw[15] = 1;
-			raw[1] = raw[2] = raw[3] = raw[4] =
-				raw[6] = raw[7] = raw[8] = raw[9] = raw[11] = 0;
+			raw[1] = raw[2] = raw[3] = raw[4] = raw[6] = raw[7] = raw[8] = raw[9] = raw[11] = 0;
 			this._pMatrix.copyRawDataFrom(raw);
 			
 			this._pFrustumCorners[0] = this._pFrustumCorners[9] = this._pFrustumCorners[12] = this._pFrustumCorners[21] = this._minX;

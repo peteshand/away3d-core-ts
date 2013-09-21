@@ -100,7 +100,7 @@ module away.materials
 		 *
 		 * @param renderToTexture Indicates whether this pass is a render-to-texture pass.
 		 */
-		constructor(renderToTexture:boolean = false)
+		constructor(renderToTexture:boolean)
 		{
 
             super();

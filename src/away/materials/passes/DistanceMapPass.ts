@@ -34,9 +34,7 @@ module away.materials
 
 			super();
 
-			this._fragmentData = new Array<number>(    1.0, 255.0, 65025.0, 16581375.0,
-				                                        1.0/255.0, 1.0/255.0, 1.0/255.0, 0.0,
-				                                        0.0, 0.0, 0.0, 0.0);
+			this._fragmentData = new Array<number>(1.0, 255.0, 65025.0, 16581375.0, 1.0/255.0, 1.0/255.0, 1.0/255.0, 0.0, 0.0, 0.0, 0.0, 0.0);
 			this._vertexData = new Array<number>(4);
 			this._vertexData[3] = 1;
 			this._pNumUsedVertexConstants = 9;

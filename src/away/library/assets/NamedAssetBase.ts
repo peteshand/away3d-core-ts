@@ -15,7 +15,7 @@ module away.library
 
 		public static DEFAULT_NAMESPACE : string = 'default';
 		
-		constructor( name : string = null )
+		constructor( name : string )
 		{
             super();
 

@@ -6,7 +6,7 @@ module away.base
      */
 	export class CompactSubGeometry extends away.base.SubGeometryBase implements away.base.ISubGeometry
 	{
-		public _pVertexDataInvalid:boolean[] = Array<boolean>( 8 );//new Vector.<Boolean>(8, true);
+		public _pVertexDataInvalid:boolean[] = new Array<boolean>( 8 );//new Vector.<Boolean>(8, true);
 		private _vertexBuffer:away.display3D.VertexBuffer3D[] = new Array<away.display3D.VertexBuffer3D>( 8 );//Vector.<VertexBuffer3D> = new Vector.<VertexBuffer3D>(8);
 		private _bufferContext:away.display3D.Context3D[] = new Array<away.display3D.Context3D>( 8 );//Vector.<Context3D> = new Vector.<Context3D>(8);
 		public _pNumVertices:number;

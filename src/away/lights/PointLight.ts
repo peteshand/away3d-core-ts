@@ -116,9 +116,7 @@ module away.lights
 			raw[5] = raw[0] = zMin/d;
 			raw[10] = zMax/(zMax - zMin);
 			raw[11] = 1;
-			raw[1] = raw[2] = raw[3] = raw[4] =
-				raw[6] = raw[7] = raw[8] = raw[9] =
-				raw[12] = raw[13] = raw[15] = 0;
+			raw[1] = raw[2] = raw[3] = raw[4] = raw[6] = raw[7] = raw[8] = raw[9] = raw[12] = raw[13] = raw[15] = 0;
 			raw[14] = -zMin*raw[10];
 			
 			if(!target)

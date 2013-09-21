@@ -138,8 +138,7 @@ module away.cameras
 			raw[9] = (bottom + top)/(bottom - top);
 			raw[10] = (this._pFar + this._pNear)/(this._pFar - this._pNear);
 			raw[11] = 1;
-			raw[1] = raw[2] = raw[3] = raw[4] =
-				raw[6] = raw[7] = raw[12] = raw[13] = raw[15] = 0;
+			raw[1] = raw[2] = raw[3] = raw[4] = raw[6] = raw[7] = raw[12] = raw[13] = raw[15] = 0;
 			raw[14] = -2*this._pFar*this._pNear/(this._pFar - this._pNear);
 			
 			this._pMatrix.copyRawDataFrom(raw);

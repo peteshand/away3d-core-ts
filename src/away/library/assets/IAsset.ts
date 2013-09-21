@@ -11,7 +11,7 @@ module away.library
 		id : string; // GET SET
 		assetNamespace : string; // GET
 		assetType : string; // GET
-		assetFullPath : Array; // GET
+		assetFullPath : Array<string>; // GET
 		
 		assetPathEquals(name : string, ns : string) : boolean;
 		resetAssetPath(name : string, ns : string = null, overrideOriginal : boolean = true ) : void;

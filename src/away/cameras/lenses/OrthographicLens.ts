@@ -82,9 +82,7 @@ module away.cameras
 				raw[5] = 2/this._projectionHeight;
 				raw[10] = 1/(this._pFar - this._pNear);
 				raw[14] = this._pNear/(this._pNear - this._pFar);
-				raw[1] = raw[2] = raw[3] = raw[4] =
-				raw[6] = raw[7] = raw[8] = raw[9] =
-				raw[11] = raw[12] = raw[13] = 0;
+				raw[1] = raw[2] = raw[3] = raw[4] = raw[6] = raw[7] = raw[8] = raw[9] = raw[11] = raw[12] = raw[13] = 0;
 				raw[15] = 1;
 				
 			} else {
@@ -107,8 +105,7 @@ module away.cameras
 				raw[13] = (bottom + top)/(bottom - top);
 				raw[14] = this._pNear/(this.near - this.far);
 				
-				raw[1] = raw[2] = raw[3] = raw[4] =
-				raw[6] = raw[7] = raw[8] = raw[9] = raw[11] = 0;
+				raw[1] = raw[2] = raw[3] = raw[4] = raw[6] = raw[7] = raw[8] = raw[9] = raw[11] = 0;
 				raw[15] = 1;
 			}
 

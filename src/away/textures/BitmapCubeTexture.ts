@@ -142,7 +142,7 @@ module away.textures
                 else
                 {
 
-                    var tx : away.display3D.CubeTexture = <any> texture;
+                    var tx : away.display3D.CubeTexture = <away.display3D.CubeTexture> texture;
                         tx.uploadFromBitmapData( this._bitmapDatas[i] , i , 0 );
 
                 }

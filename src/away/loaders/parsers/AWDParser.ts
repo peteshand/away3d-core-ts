@@ -29,7 +29,7 @@ module away.loaders
 		private _parsed_header          : boolean = false;
 		private _body                   : away.utils.ByteArray;
 		private _defaultTexture         : away.textures.BitmapTexture;     // HTML IMAGE TEXTURE >? !
-		private _cubeTextures           : Array<any>;
+		private _cubeTextures           : Array;
 		private _defaultBitmapMaterial  : away.materials.TextureMaterial;
 		private _defaultCubeTexture     : away.textures.BitmapCubeTexture;
 
@@ -853,7 +853,7 @@ module away.loaders
             primType    = this._newBlockBytes.readUnsignedByte();
             props       = this.parseProperties({101:this._geoNrType, 102:this._geoNrType, 103:this._geoNrType, 110:this._geoNrType, 111:this._geoNrType, 301:AWDParser.UINT16, 302:AWDParser.UINT16, 303:AWDParser.UINT16, 701:AWDParser.BOOL, 702:AWDParser.BOOL, 703:AWDParser.BOOL, 704:AWDParser.BOOL});
 
-            var primitveTypes:Array<string> = ["Unsupported Type-ID", "PlaneGeometry", "CubeGeometry", "SphereGeometry", "CylinderGeometry", "ConeGeometry", "CapsuleGeometry", "TorusGeometry"]
+            var primitveTypes:Array = ["Unsupported Type-ID", "PlaneGeometry", "CubeGeometry", "SphereGeometry", "CylinderGeometry", "ConeGeometry", "CapsuleGeometry", "TorusGeometry"]
 
             switch (primType)
             {
@@ -908,7 +908,7 @@ module away.loaders
 
             this.parseUserAttributes();
             geom.name = name;
-            this._pFinalizeAsset(geom, name);
+            this._pFinalizeAsset( <away.library.IAsset> geom, name);
             this._blocks[blockID].data = geom;
 
             if (this._debug)
@@ -938,7 +938,7 @@ module away.loaders
             ctr                     = new away.containers.ObjectContainer3D();
             ctr.transform           = mtx;
 
-            var returnedArray:Array<any> = this.getAssetByID(par_id, [away.library.AssetType.CONTAINER, away.library.AssetType.LIGHT, away.library.AssetType.MESH, away.library.AssetType.ENTITY, away.library.AssetType.SEGMENT_SET]);
+            var returnedArray:Array = this.getAssetByID(par_id, [away.library.AssetType.CONTAINER, away.library.AssetType.LIGHT, away.library.AssetType.MESH, away.library.AssetType.ENTITY, away.library.AssetType.SEGMENT_SET]);
 
             if (returnedArray[0])
             {
@@ -986,7 +986,7 @@ module away.loaders
             var parentName:string = "Root (TopLevel)";
             var data_id:number = this._newBlockBytes.readUnsignedInt();
             var geom:away.base.Geometry;
-            var returnedArrayGeometry:Array<any> = this.getAssetByID(data_id, [away.library.AssetType.GEOMETRY])
+            var returnedArrayGeometry:Array = this.getAssetByID(data_id, [away.library.AssetType.GEOMETRY])
 
             if (returnedArrayGeometry[0])
             {
@@ -1005,7 +1005,7 @@ module away.loaders
             var materialNames:Array<string> = new Array<string>();
             materials_parsed = 0;
 
-            var returnedArrayMaterial:Array<any>;
+            var returnedArrayMaterial:Array;
 
             while (materials_parsed < num_materials)
             {
@@ -1028,7 +1028,7 @@ module away.loaders
             var mesh:away.entities.Mesh = new away.entities.Mesh(geom, null);
                 mesh.transform = mtx;
 
-            var returnedArrayParent:Array<any> = this.getAssetByID(par_id, [away.library.AssetType.CONTAINER, away.library.AssetType.LIGHT, away.library.AssetType.MESH, away.library.AssetType.ENTITY, away.library.AssetType.SEGMENT_SET])
+            var returnedArrayParent:Array = this.getAssetByID(par_id, [away.library.AssetType.CONTAINER, away.library.AssetType.LIGHT, away.library.AssetType.MESH, away.library.AssetType.ENTITY, away.library.AssetType.SEGMENT_SET])
 
             if (returnedArrayParent[0])
             {
@@ -1164,7 +1164,7 @@ module away.loaders
             if (par_id != 0)
             {
 
-                var returnedArrayParent : Array<any> = this.getAssetByID(par_id, [away.library.AssetType.CONTAINER, away.library.AssetType.LIGHT, away.library.AssetType.MESH, away.library.AssetType.ENTITY, away.library.AssetType.SEGMENT_SET])
+                var returnedArrayParent : Array = this.getAssetByID(par_id, [away.library.AssetType.CONTAINER, away.library.AssetType.LIGHT, away.library.AssetType.MESH, away.library.AssetType.ENTITY, away.library.AssetType.SEGMENT_SET])
 
                 if (returnedArrayParent[0])
                 {
@@ -1223,7 +1223,7 @@ module away.loaders
             var camera:away.cameras.Camera3D    = new away.cameras.Camera3D(lens);
                 camera.transform                = mtx;
 
-            var returnedArrayParent:Array<any>  = this.getAssetByID(par_id, [away.library.AssetType.CONTAINER, away.library.AssetType.LIGHT, away.library.AssetType.MESH, away.library.AssetType.ENTITY, away.library.AssetType.SEGMENT_SET])
+            var returnedArrayParent:Array  = this.getAssetByID(par_id, [away.library.AssetType.CONTAINER, away.library.AssetType.LIGHT, away.library.AssetType.MESH, away.library.AssetType.ENTITY, away.library.AssetType.SEGMENT_SET])
 
             if (returnedArrayParent[0])
             {
@@ -1244,7 +1244,7 @@ module away.loaders
             camera.pivotPoint   = new away.geom.Vector3D(props.get(1, 0), props.get(2, 0), props.get(3, 0));
             camera.extra        = this.parseUserAttributes();
 
-            this._pFinalizeAsset(camera, name);
+            this._pFinalizeAsset( <away.library.IAsset> camera, name);
 
             this._blocks[blockID].data = camera
 
@@ -1264,7 +1264,7 @@ module away.loaders
             var k           : number                            = 0;
             var lightID     : number                            = 0;
 
-            var returnedArrayLight  : Array<any>;
+            var returnedArrayLight  : Array;
             var lightsArrayNames    : Array<string>             = new Array<string>();
 
             for (k = 0; k < numLights; k++)
@@ -1317,7 +1317,7 @@ module away.loaders
             var finalize:boolean;
             var num_methods:number;
             var methods_parsed:number;
-            var returnedArray:Array<any>;
+            var returnedArray:Array;
 
             name = this.parseVarStr();
             type = this._newBlockBytes.readUnsignedByte();
@@ -1408,7 +1408,7 @@ module away.loaders
             var mat                 : away.materials.MaterialBase;
             var normalTexture       : away.textures.Texture2DBase;
             var specTexture         : away.textures.Texture2DBase;
-            var returnedArray       : Array<any>;
+            var returnedArray       : Array;
 
             var name                : string        = this.parseVarStr();
             var type                : number        = this._newBlockBytes.readUnsignedByte();
@@ -1859,7 +1859,7 @@ module away.loaders
             var asset       : away.textures.CubeTextureBase;
             var i           : number;
 
-            this._cubeTextures = new Array<any>();
+            this._cubeTextures = new Array();
             this._texture_users[ this._cur_block_id.toString() ] = [];
 
             var type        : number    = this._newBlockBytes.readUnsignedByte();
@@ -1932,7 +1932,7 @@ module away.loaders
             this._blocks[blockID].name = this.parseVarStr();
 
             shadowLightID = this._newBlockBytes.readUnsignedInt();
-            var returnedArray:Array<any> = this.getAssetByID(shadowLightID, [away.library.AssetType.LIGHT]);
+            var returnedArray:Array = this.getAssetByID(shadowLightID, [away.library.AssetType.LIGHT]);
 
             if (!returnedArray[0])
             {
@@ -1967,7 +1967,7 @@ module away.loaders
             var parentObject    : away.containers.ObjectContainer3D;
             var targetObject    : away.containers.ObjectContainer3D;
 
-            var returnedArray:Array<any> = this.getAssetByID(par_id, [away.library.AssetType.CONTAINER, away.library.AssetType.LIGHT, away.library.AssetType.MESH, away.library.AssetType.ENTITY, away.library.AssetType.SEGMENT_SET]);
+            var returnedArray:Array = this.getAssetByID(par_id, [away.library.AssetType.CONTAINER, away.library.AssetType.LIGHT, away.library.AssetType.MESH, away.library.AssetType.ENTITY, away.library.AssetType.SEGMENT_SET]);
 
             if (returnedArray[0])
             {
@@ -1984,7 +1984,7 @@ module away.loaders
                 case 1:
 
                     var targetID : number = props.get(1, 0);
-                    var returnedArrayTarget:Array<any> = this.getAssetByID(targetID, [away.library.AssetType.LIGHT, away.library.AssetType.TEXTURE_PROJECTOR]); //for no only light is requested!!!!
+                    var returnedArrayTarget:Array = this.getAssetByID(targetID, [away.library.AssetType.LIGHT, away.library.AssetType.TEXTURE_PROJECTOR]); //for no only light is requested!!!!
 
                     if ((!returnedArrayTarget[0]) && (targetID != 0))
                     {
@@ -2400,7 +2400,7 @@ module away.loaders
 
             if (elem_len < len)
             {
-                var list      : Array<any>   = [];
+                var list      : Array   = [];
                 var num_read  : number       = 0;
                 var num_elems : number       = len/elem_len;
 
@@ -2489,9 +2489,9 @@ module away.loaders
             return this._newBlockBytes.readUTFBytes(len);
         }
 
-        private getAssetByID(assetID:number, assetTypesToGet:Array<string>, extraTypeInfo:string = "SingleTexture"):Array<any>
+        private getAssetByID(assetID:number, assetTypesToGet:Array<string>, extraTypeInfo:string = "SingleTexture"):Array
         {
-            var returnArray:Array<any> = new Array();
+            var returnArray:Array = new Array();
             var typeCnt:number = 0;
             if (assetID > 0)
             {

@@ -206,7 +206,7 @@ module away.loaders
         private getHTMLImageElement( name : string ) : HTMLImageElement
         {
 
-            var imgLoader : away.net.IMGLoader = <away.net.IMGLoader> this._imgLoaderDictionary[ name ];
+            var imgLoader : away.net.IMGLoader = <away.net.IMGLoader> this._imgLoaderDictionary[name];
 
             if ( imgLoader )
             {
@@ -259,7 +259,7 @@ module away.loaders
                     break;
 
             }
-
+			return false;
 		}
 
 	}
