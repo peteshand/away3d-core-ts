@@ -45,7 +45,7 @@ module away.render
 		/**
 		 * Creates a new RendererBase object.
 		 */
-		constructor(renderToTexture:boolean = false)
+		constructor(renderToTexture:boolean)
 		{
 			this._pRenderableSorter = new away.sort.RenderableMergeSort();
 			this._renderToTexture = renderToTexture;

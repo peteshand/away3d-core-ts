@@ -12,7 +12,7 @@ module away.materials
 		private _index:number;
 		private _toStr:string;
 		
-		private static COMPONENTS = ["x", "y", "z", "w"];
+		private static COMPONENTS:string[] = new Array<string>('x','y','z','w');
 		
 		public _component:number;
 		

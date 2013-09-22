@@ -26,8 +26,8 @@ module away.materials
 		private _vertexConstantData:number[];
 		private _fragmentConstantData:number[];
 
-		public _pVertexCode:string = ''; // Changed to emtpy string- AwayTS
-        public _pFragmentCode:string = '';// Changed to emtpy string - AwayTS
+		public _pVertexCode:string = '';
+        public _pFragmentCode:string = '';
 		private _fragmentLightCode:string;
 		private _fragmentPostLightCode:string;
 		private _commonsDataIndex:number = -1;
