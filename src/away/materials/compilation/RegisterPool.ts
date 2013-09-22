@@ -191,13 +191,13 @@ module away.materials
 			this._vectorRegisters = RegisterPool._regPool[hash];
 			this._registerComponents = RegisterPool._regCompsPool[hash];
 			
-			this._usedVectorCount = this._initArray( Array<number>(regCount) , 0 ) ;//new Vector.<uint>(regCount, true);
+			this._usedVectorCount = Array<number>(regCount);
 
-            this._usedSingleCount = new Array<Array<number>>( 4 ); //this._usedSingleCount = new Vector.<Vector.<uint>>(4, true);
-			this._usedSingleCount[0] = this._initArray( new Array<number>(regCount ) , 0 );//new Array<number>(regCount ) ;//, true);
-            this._usedSingleCount[1] = this._initArray( new Array<number>(regCount ) , 0 );//new Array<number>(regCount ) ;//new Vector.<uint>(regCount, true);
-            this._usedSingleCount[2] = this._initArray( new Array<number>(regCount ) , 0 );//new Array<number>(regCount ) ;//new Vector.<uint>(regCount, true);
-            this._usedSingleCount[3] = this._initArray( new Array<number>(regCount ) , 0 );//new Array<number>(regCount ) ;//new Vector.<uint>(regCount, true);
+            this._usedSingleCount = new Array<Array<number>>(4);
+			this._usedSingleCount[0] = new Array<number>(regCount );
+            this._usedSingleCount[1] = new Array<number>(regCount );
+            this._usedSingleCount[2] = new Array<number>(regCount );
+            this._usedSingleCount[3] = new Array<number>(regCount );
 
             //console.log( 'this._usedVectorCount: ' , this._usedVectorCount );
             //console.log( 'this._usedSingleCount: ' , this._usedSingleCount );
@@ -273,24 +273,5 @@ module away.materials
 			
 			return false;
 		}
-
-
-        private _initArray( a : Array<number> , val : any ) : Array<number>
-        {
-
-            var l : number = a.length;
-
-            for ( var c : number = 0 ; c < l ; c ++ )
-            {
-
-                a[c] = val;
-
-            }
-
-            return a;
-
-        }
-
 	}
-
 }

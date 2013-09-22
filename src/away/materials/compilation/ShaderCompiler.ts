@@ -35,8 +35,8 @@ module away.materials
 		public _pAnimatableAttributes:string[]; // PROTECTED
 		public _pAnimationTargetRegisters:string[]; // PROTECTED
 
-		public _pLightProbeDiffuseIndices:number[] /*uint*/;
-        public _pLightProbeSpecularIndices:number[] /*uint*/;
+		public _pLightProbeDiffuseIndices:number[]; /*uint*/;
+        public _pLightProbeSpecularIndices:number[]; /*uint*/;
 		private _uvBufferIndex:number = -1;
 		private _uvTransformIndex:number = -1;
 		private _secondaryUVBufferIndex:number = -1;
