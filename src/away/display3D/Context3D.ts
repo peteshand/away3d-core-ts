@@ -545,7 +545,7 @@ module away.display3D
 					this._gl.texParameteri( this._gl.TEXTURE_2D, this._gl.TEXTURE_MAG_FILTER, samplerState.filter );
 				}
 				
-				this._gl.bindTexture( this._gl.TEXTURE_2D, null );
+				//this._gl.bindTexture( this._gl.TEXTURE_2D, null ); results in black texture
 			}
 			else if( texture.textureType == "textureCube" )
 			{
@@ -572,7 +572,7 @@ module away.display3D
 						this._gl.texParameteri( this._gl.TEXTURE_CUBE_MAP, this._gl.TEXTURE_MAG_FILTER, samplerState.filter );
 					}
 					
-					this._gl.bindTexture( this._gl.TEXTURE_CUBE_MAP, null );
+					//this._gl.bindTexture( this._gl.TEXTURE_CUBE_MAP, null ); results in black texture
 				}
 			}
 			

@@ -1,5 +1,3 @@
-
-
 ///<reference path="../_definitions.ts"/>
 
 module away.textures

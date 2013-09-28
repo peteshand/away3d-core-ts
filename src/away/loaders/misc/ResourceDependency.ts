@@ -1,7 +1,4 @@
-﻿
-
-
-///<reference path="../../_definitions.ts"/>
+﻿///<reference path="../../_definitions.ts"/>
 
 module away.loaders
 {
