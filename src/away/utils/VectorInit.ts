@@ -8,16 +8,36 @@ module away.utils
 			return away.utils.VectorInit.Pop(v, defaultValue, length);
         }
 		
-		public static Str(length:Number=0, defaultValue:string='', v:string[]=null):string[]
+		public static Str(length:number=0, defaultValue:string='', v:string[]=null):string[]
         {
 			if (!v) v = new Array<string>(length);
             return away.utils.VectorInit.Pop(v, defaultValue, length);
         }
 		
-		public static VecNum(length:Number=0, defaultValue:Number=0, v:Array<Array<number>>=null):Array<Array<number>>
+		public static Bool(length:Number = 0, defaultValue:boolean = false, v:Array<boolean> = null):Array<boolean>
+        {
+			if (!v) v = new Array<boolean>(length);
+            return away.utils.VectorInit.Pop(v, defaultValue, length);
+        }
+		
+		public static VecNum(length:number=0, defaultValue:number=0, v:Array<Array<number>>=null):Array<Array<number>>
         {
 			if (!v) v = Array<Array<number>>(length);
             for (var g:number = 0; g < length; ++g) v[g].push(away.utils.VectorInit.Num());
+			return v;
+        }
+		
+		public static StarVec(length:number = 0, defaultValue:* = ""):Array<*>
+        {
+			var initVec:any[] = new Array<*>();
+            for (var g:number = 0; g < length; ++g) initVec.push(defaultValue);
+			return initVec;
+        }
+
+		public static AnyClass(_class:*, length:number = 0):*
+        {
+			var v:any[] = new Array<*>(length);
+			for (var g:number = 0; g < length; ++g) v.push(null);
 			return v;
         }
 		
@@ -27,26 +47,5 @@ module away.utils
 			for (var g:number = 0; g < length; ++g) v[g] = defaultValue;
             return v;
         }
-		
-		
-		/*public static Any(length:Number=0, defaultValue:Number=0, v:any[]=null):any[]
-        {
-			if (!v) v = new Array<any>(length);
-            return away.utils.VectorInit.Pop(v, defaultValue, length);
-        } 
-		
-		public static VecStr(length:Number=0, defaultValue:Number=0, v:any[]=null):any[]
-        {
-			if (!v) v = new Array<any>(length);
-            for (var g:number = 0; g < length; ++g) v[g] = defaultValue;
-            return v;
-        }
-		
-		public static VecAny(length:Number=0, defaultValue:Number=0, v:any[]=null):any[]
-        {
-			if (!v) v = new Array<any>(length);
-            for (var g:number = 0; g < length; ++g) v[g] = defaultValue;
-            return v;
-        }*/
 	}
 }
