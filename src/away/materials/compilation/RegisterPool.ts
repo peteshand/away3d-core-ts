@@ -191,7 +191,7 @@ module away.materials
 			this._vectorRegisters = RegisterPool._regPool[hash];
 			this._registerComponents = RegisterPool._regCompsPool[hash];
 			
-			this._usedVectorCount = Array<number>(regCount);
+			this._usedVectorCount = new Array<number>(regCount);
 
             this._usedSingleCount = new Array<Array<number>>(4);
 			this._usedSingleCount[0] = new Array<number>(regCount );
