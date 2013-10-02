@@ -1,8 +1,3 @@
-/**
- * ...
- * @author Gary Paluk - http://www.plugin.io
- */
-
 ///<reference path="../../away/_definitions.ts" />
 
 module aglsl.assembler
@@ -12,7 +7,7 @@ module aglsl.assembler
 
         private static _map : Object[];
 
-        public static get map () : Object[]
+        public static map () : Object[]
         {
 
             if ( ! SamplerMap._map )

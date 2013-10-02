@@ -1,8 +1,3 @@
-/**
- * ...
- * @author Gary Paluk - http://www.plugin.io
- */
-
 ///<reference path="../../../src/away/_definitions.ts" />
 ///<reference path="../tsUnit.ts" />
 
@@ -123,7 +118,7 @@ module tests.unit.geom
             this.areIdentical(result.z , 4 );
             this.areIdentical(result.w , 5 );
 
-            console.log( 'copyFrom' , result.x , result.y , result.z , result.w);
+            //console.log( 'copyFrom' , result.x , result.y , result.z , result.w);
 
         }
 

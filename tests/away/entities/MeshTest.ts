@@ -1,14 +1,9 @@
-///<reference path="../../../src/away/_definitions.ts" />
+///<reference path="../../../lib/Away3D.next.d.ts" />
+//<reference path="../../../src/Away3D.ts" />
 
-//------------------------------------------------------------------------------------------------
-// Web / PHP Storm arguments string
-//------------------------------------------------------------------------------------------------
-// --sourcemap $ProjectFileDir$/tests/away/entities/MeshTest.ts --target ES5 --comments --out $ProjectFileDir$/tests/away/entities/MeshTest.js
-//------------------------------------------------------------------------------------------------
+module tests.entities {
 
-module tests {
-
-    export class EntityTest //extends away.events.EventDispatcher
+    export class MeshTest //extends away.events.EventDispatcher
     {
 
         private entity  : away.entities.Entity;
@@ -39,19 +34,5 @@ module tests {
         }
 
     }
-
-}
-
-var GL = null;//: WebGLRenderingContext;
-
-var test
-
-window.onload = function ()
-{
-
-    test = new tests.EntityTest();
-
-    var canvas : HTMLCanvasElement = document.createElement('canvas');
-    GL = canvas.getContext("experimental-webgl");
 
 }

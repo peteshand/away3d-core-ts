@@ -1,8 +1,3 @@
-/**
- * ...
- * @author Gary Paluk - http://www.plugin.io
- */
-
 ///<reference path="../../away/_definitions.ts" />
 
 module aglsl.assembler
@@ -10,7 +5,7 @@ module aglsl.assembler
 	export class RegMap
 	{
         private static _map:any[];
-        public static get map () : any[]
+        public static map () : any[]
         {
             if ( ! RegMap._map )
             {

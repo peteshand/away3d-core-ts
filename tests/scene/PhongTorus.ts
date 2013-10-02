@@ -1,9 +1,5 @@
-/**
- * ...
- * @author Gary Paluk - http://www.plugin.io
- */
- 
-///<reference path="../../src/away/_definitions.ts" />
+///<reference path="../../lib/Away3D.next.d.ts" />
+
 module scene
 {
 	export class PhongTorus extends away.events.EventDispatcher
@@ -41,7 +37,7 @@ module scene
 		
 		private loadResources()
 		{
-			var urlRequest:away.net.URLRequest = new away.net.URLRequest( "130909wall_big.png" );
+			var urlRequest:away.net.URLRequest = new away.net.URLRequest( "assets/130909wall_big.png" );
 			var imgLoader:away.net.IMGLoader = new away.net.IMGLoader();
 			imgLoader.addEventListener( away.events.Event.COMPLETE, this.imageCompleteHandler, this );
 			imgLoader.load( urlRequest );

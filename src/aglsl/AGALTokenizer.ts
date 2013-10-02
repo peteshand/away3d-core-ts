@@ -1,8 +1,3 @@
-/**
- * ...
- * @author Gary Paluk - http://www.plugin.io
- */
-
 ///<reference path="../away/_definitions.ts" />
 
 module aglsl
@@ -48,7 +43,7 @@ module aglsl
 				var token:aglsl.Token = new aglsl.Token();
 				
 				token.opcode = bytes.readUnsignedInt();          
-				var lutentry = Mapping.agal2glsllut[token.opcode];
+				var lutentry = Mapping.agal2glsllut()[token.opcode];
 				if ( !lutentry )
 				{
 					throw "Opcode not valid or not implemented yet: " + token.opcode;

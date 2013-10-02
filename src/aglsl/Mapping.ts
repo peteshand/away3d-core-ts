@@ -1,8 +1,3 @@
-/**
- * ...
- * @author Gary Paluk - http://www.plugin.io
- */
-
 ///<reference path="../away/_definitions.ts" />
 
 module aglsl
@@ -11,7 +6,7 @@ module aglsl
 	{
 		private static _agal2glsllut:aglsl.OpLUT[];
 		
-		public static get agal2glsllut():aglsl.OpLUT[]
+		public static agal2glsllut():aglsl.OpLUT[]
 		{
 			if (!aglsl.Mapping._agal2glsllut) { 
 				aglsl.Mapping._agal2glsllut = [

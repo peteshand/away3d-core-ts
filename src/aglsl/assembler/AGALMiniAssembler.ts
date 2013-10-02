@@ -1,8 +1,3 @@
-/**
- * ...
- * @author Gary Paluk - http://www.plugin.io
- */
-
 ///<reference path="../../away/_definitions.ts" />
 
 module aglsl.assembler
@@ -96,7 +91,7 @@ module aglsl.assembler
 					{
 						return;
 					}
-					var op: aglsl.assembler.Opcode = <aglsl.assembler.Opcode> OpcodeMap.map[tokens[0]];
+					var op: aglsl.assembler.Opcode = <aglsl.assembler.Opcode> OpcodeMap.map()[tokens[0]];
 					if ( !op )
 					{
 						throw "Bad opcode "+tokens[0]+" "+linenr+": "+line;
@@ -189,14 +184,14 @@ module aglsl.assembler
 		public emitDest( pr, token, opdest ):boolean
 		{
 			
-            //console.log( 'aglsl.assembler.AGALMiniAssembler' , 'emitDest' , 'RegMap.map' , RegMap.map);           
+            //console.log( 'aglsl.assembler.AGALMiniAssembler' , 'emitDest' , 'RegMap.map()' , RegMap.map());           
 			var reg = token.match ( /([fov]?[tpocidavs])(\d*)(\.[xyzw]{1,4})?/i ); // g1: regname, g2:regnum, g3:mask
 			
-			// console.log( 'aglsl.assembler.AGALMiniAssembler' , 'emitDest' , 'reg' , reg , reg[1] , RegMap.map[reg[1]] );
-			// console.log( 'aglsl.assembler.AGALMiniAssembler' , 'emitDest' , 'RegMap.map[reg[1]]' , RegMap.map[reg[1]] , 'bool' , !RegMap.map[reg[1]] ) ;
+			// console.log( 'aglsl.assembler.AGALMiniAssembler' , 'emitDest' , 'reg' , reg , reg[1] , RegMap.map()[reg[1]] );
+			// console.log( 'aglsl.assembler.AGALMiniAssembler' , 'emitDest' , 'RegMap.map()[reg[1]]' , RegMap.map()[reg[1]] , 'bool' , !RegMap.map()[reg[1]] ) ;
             
-			if ( !RegMap.map[reg[1]] ) return false;
-			var em = { num:reg[2]?reg[2]:0, code:RegMap.map[reg[1]].code, mask:this.stringToMask(reg[3]) };
+			if ( !RegMap.map()[reg[1]] ) return false;
+			var em = { num:reg[2]?reg[2]:0, code:RegMap.map()[reg[1]].code, mask:this.stringToMask(reg[3]) };
 			pr.data.writeUnsignedShort ( em.num );
 			pr.data.writeUnsignedByte ( em.mask );
 			pr.data.writeUnsignedByte ( em.code );
@@ -284,7 +279,7 @@ module aglsl.assembler
 			var sampleroptset:number = 0; 
 			for ( var i:number = 0; i < opts.length; i++ )
 			{
-				var o:aglsl.assembler.Sampler = <aglsl.assembler.Sampler> SamplerMap.map[opts[i].toLowerCase()];
+				var o:aglsl.assembler.Sampler = <aglsl.assembler.Sampler> SamplerMap.map()[opts[i].toLowerCase()];
 				
                 //console.log( 'AGALMiniAssembler' , 'emitSampler' , 'SampleMap opt:' , o , '<-------- WATCH FOR THIS');
 				
@@ -314,12 +309,12 @@ module aglsl.assembler
 			var reg;
 			if( indexed )
 			{
-				if ( !RegMap.map[indexed[1]] )
+				if ( !RegMap.map()[indexed[1]] )
 				{
 					return false;
 				}
 				var selindex = { x:0, y:1, z:2, w:3 };
-				var em:any = { num:indexed[2]|0, code:RegMap.map[indexed[1]].code, swizzle:this.stringToSwizzle(indexed[5]), select:selindex[indexed[3]], offset:indexed[4]|0 };
+				var em:any = { num:indexed[2]|0, code:RegMap.map()[indexed[1]].code, swizzle:this.stringToSwizzle(indexed[5]), select:selindex[indexed[3]], offset:indexed[4]|0 };
 				pr.data.writeUnsignedShort( em.num );
 				pr.data.writeByte( em.offset );
 				pr.data.writeUnsignedByte( em.swizzle );
@@ -331,11 +326,11 @@ module aglsl.assembler
 			else
 			{
 				reg = token.match( /([fov]?[tpocidavs])(\d*)(\.[xyzw]{1,4})?/i ); // g1: regname, g2:regnum, g3:swizzle
-				if( !RegMap.map[reg[1]] )
+				if( !RegMap.map()[reg[1]] )
 				{
 					return false;
 				}
-				var em : any = { num:reg[2]|0, code:RegMap.map[reg[1]].code, swizzle:this.stringToSwizzle(reg[3]) };
+				var em : any = { num:reg[2]|0, code:RegMap.map()[reg[1]].code, swizzle:this.stringToSwizzle(reg[3]) };
 				pr.data.writeUnsignedShort ( em.num );
 				pr.data.writeUnsignedByte ( 0 );
 				pr.data.writeUnsignedByte ( em.swizzle );
