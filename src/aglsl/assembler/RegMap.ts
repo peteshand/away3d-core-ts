@@ -1,15 +1,21 @@
 ///<reference path="../../away/_definitions.ts" />
 
 module aglsl.assembler
-{
+{	
 	export class RegMap
 	{
         private static _map:any[];
+		
+		constructor()
+		{
+			
+		}
+		
         public static map () : any[]
         {
             if ( ! RegMap._map )
             {
-                RegMap._map = new Array();
+                RegMap._map = new Array<Object>();
                 RegMap._map['va'] =  new aglsl.assembler.Reg( 0x00, "vertex attribute" );
                 RegMap._map['fc'] =  new aglsl.assembler.Reg( 0x01, "fragment constant" );
                 RegMap._map['vc'] =  new aglsl.assembler.Reg( 0x01, "vertex constant" )
@@ -28,8 +34,19 @@ module aglsl.assembler
             return RegMap._map;
         }
 		
-		constructor()
-		{
-		}
+		
+	}
+}
+
+export class Reg
+{
+	
+	public code:number;
+	public desc:string;
+	
+	constructor( code:number, desc:string )
+	{
+		this.code = code;
+		this.desc = desc;
 	}
 }

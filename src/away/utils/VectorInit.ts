@@ -34,7 +34,7 @@ module away.utils
 			return initVec;
         }
 
-		public static AnyClass(_class:*, length:number = 0):*
+		public static AnyClass(length:number = 0):*
         {
 			var v:any[] = new Array<*>();
 			for (var g:number = 0; g < length; ++g) v.push(null);

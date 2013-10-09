@@ -5,8 +5,8 @@ module aglsl
 {
 	export class Description
 	{
-		public regread:any[] = [];
-        public regwrite:any[] = [];
+		public regread:any[] = [[],[],[],[],[],[],[]];
+        public regwrite:any[] = [[],[],[],[],[],[],[]];
         public hasindirect:boolean =  false;
         public writedepth:boolean = false;
         public hasmatrix:boolean = false;
@@ -18,8 +18,6 @@ module aglsl
 		
 		constructor()
 		{
-			regread.push( [], [], [], [], [], [], []);
-			regwrite.push( [], [], [], [], [], [], []);
 		}
 	}
 }
