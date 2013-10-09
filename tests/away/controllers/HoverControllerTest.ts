@@ -1,4 +1,4 @@
-///<reference path="../../../lib/Away3D.next.d.ts" />
+///<reference path="../../../build/Away3D.next.d.ts" />
 //<reference path="../../../src/Away3D.ts" />
 
 module tests.controllers{
@@ -27,7 +27,7 @@ module tests.controllers{
             this._wireframeCube         = new away.primitives.WireframeCube( 400 , 400 , 400 )
             this._view.scene.addChild( this._wireframeCube );
 
-            this._hoverControl          = new away.controllers.HoverController( this._view.camera , this._wireframeCube , 150, 10, 2000);
+            this._hoverControl          = new away.controllers.HoverController( this._view.camera , this._wireframeCube , 150, 10);
 
             window.onresize             = () => this.resize();
 
@@ -53,12 +53,6 @@ module tests.controllers{
 
         private render( dt : number ) //animate based on dt for firefox
         {
-
-            if ( this._hoverControl  )
-            {
-                this._hoverControl.update();
-            }
-
             this._view.render();
 
         }
@@ -72,8 +66,8 @@ module tests.controllers{
         {
             if (this._move)
             {
-                this._hoverControl.panAngle = 0.3 * (window.event.clientX - this._lastMouseX) + this._lastPanAngle;
-                this._hoverControl.tiltAngle = 0.3 * (window.event.clientY - this._lastMouseY) + this._lastTiltAngle;
+                this._hoverControl.panAngle = 0.3 * (e.clientX - this._lastMouseX) + this._lastPanAngle;
+                this._hoverControl.tiltAngle = 0.3 * (e.clientY - this._lastMouseY) + this._lastTiltAngle;
             }
         }
 
@@ -81,8 +75,8 @@ module tests.controllers{
         {
             this._lastPanAngle      = this._hoverControl.panAngle;
             this._lastTiltAngle     = this._hoverControl.tiltAngle;
-            this._lastMouseX        = window.event.clientX;//e.clientX;
-            this._lastMouseY        = window.event.clientY;//e.clientX;
+            this._lastMouseX        = e.clientX;//e.clientX;
+            this._lastMouseY        = e.clientY;//e.clientX;
             this._move              = true;
         }
 
