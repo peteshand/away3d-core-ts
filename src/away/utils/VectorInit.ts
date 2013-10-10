@@ -41,6 +41,13 @@ module away.utils
 			return v;
         }
 		
+		public static VecArray(length:number = 0):*
+        {
+			var v:any[] = new Array<*>();
+			for (var g:number = 0; g < length; ++g) v.push(new Array());
+			return v;
+        }
+		
 		private static Pop(v:*, defaultValue:*, length:number=0):*
         {
 			if (length == 0) return v;
