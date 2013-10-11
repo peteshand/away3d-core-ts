@@ -15,7 +15,7 @@ module aglsl.assembler
         {
             if ( ! RegMap._map )
             {
-                RegMap._map = new Array<Object>();
+                RegMap._map = new Array<any>();
                 RegMap._map['va'] =  new aglsl.assembler.Reg( 0x00, "vertex attribute" );
                 RegMap._map['fc'] =  new aglsl.assembler.Reg( 0x01, "fragment constant" );
                 RegMap._map['vc'] =  new aglsl.assembler.Reg( 0x01, "vertex constant" )

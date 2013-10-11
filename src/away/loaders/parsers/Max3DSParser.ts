@@ -214,7 +214,7 @@ module away.loaders
 					var obj:away.containers.ObjectContainer3D;
 					obj = this.constructObject(this._unfinalized_objects[name]);
 					if (obj)
-                        this._pFinalizeAsset(obj, name);
+                        this._pFinalizeAsset(<away.library.IAsset>obj, name);
 				}
 				
 				return away.loaders.ParserBase.PARSING_DONE;
@@ -449,7 +449,7 @@ module away.loaders
 				obj = this.constructObject(vo, pivot);
 				
 				if (obj)
-                    this._pFinalizeAsset(obj, vo.name);
+                    this._pFinalizeAsset(<away.library.IAsset>obj, vo.name);
 				
 				delete this._unfinalized_objects[name];
 			}

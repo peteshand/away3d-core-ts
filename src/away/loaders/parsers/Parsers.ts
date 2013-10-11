@@ -38,9 +38,7 @@ module away.loaders
          *
          * @see away3d.loading.AssetLibrary.enableParser
          */
-        public static ALL_BUNDLED:Array<Object> = Array<Object>(
-            away.loaders.AWDParser, away.loaders.Max3DSParser, away.loaders.OBJParser
-        );
+        public static ALL_BUNDLED:Array<Object> = Array<Object>(away.loaders.AWDParser, away.loaders.Max3DSParser, away.loaders.OBJParser);
 
         /**
          * Short-hand function to enable all bundled parsers for auto-detection. In practice,
